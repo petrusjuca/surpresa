@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Juliane Te amo</title>
+    <title>Juliane Te Amo</title>
     <style>
         body {
             display: flex;
@@ -14,11 +14,24 @@
             margin: 0;
             font-family: Arial, sans-serif;
             background-color: #f2f2f2;
-            text-align: center;
+            overflow: hidden; /* Para esconder os corações que saem da tela */
         }
-        h1 {
+        .container {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 10px;
+            text-align: center;
+            display: none; /* Inicialmente oculto */
+        }
+        .container h1 {
+            grid-column: 2 / 3;
             font-size: 3rem;
             color: #ff4081;
+        }
+        .container img {
+            width: 100%;
+            height: auto;
+            border-radius: 8px;
         }
         .button {
             margin: 20px 0;
@@ -30,30 +43,61 @@
             border-radius: 5px;
             cursor: pointer;
         }
-        .hearts {
-            margin-top: 20px;
+        .heart {
+            position: absolute;
+            color: red;
+            font-size: 30px;
+            animation: fall 3s forwards;
         }
-        .hearts img {
-            width: 50px; /* Ajuste o tamanho dos corações conforme necessário */
-            margin: 5px;
+        @keyframes fall {
+            0% {
+                top: -50px;
+                opacity: 1;
+            }
+            100% {
+                top: 100vh; /* Desce até o fundo da tela */
+                opacity: 0;
+            }
         }
     </style>
 </head>
 <body>
     <h1>JULIANE TE AMO</h1>
-    <button class="button" onclick="showHearts()">Clique Aqui para Outra Surpresa!</button>
+    <button class="button" onclick="showKittens()">Clique Aqui para Outra Surpresa!</button>
 
-    <div class="hearts" id="heartsContainer" style="display: none;">
-        <img src="https://media.giphy.com/media/4AiJhaXqe10fy/giphy.gif" alt="Coração 1">
-        <img src="https://media.giphy.com/media/xT9IgG50FuXJYx05Gm/giphy.gif" alt="Coração 2">
-        <img src="https://media.giphy.com/media/8vQSQ3FJQmNj2/giphy.gif" alt="Coração 3">
-        <img src="https://media.giphy.com/media/3o6MbdQyM2p2ptA9tS/giphy.gif" alt="Coração 4">
-        <img src="https://media.giphy.com/media/l0Exk8RzWv4XxCwsy/giphy.gif" alt="Coração 5">
+    <div class="container" id="kittensContainer">
+        <img src="https://media.giphy.com/media/vzvnFJV8a7zipTTuHf/giphy.gif" alt="Gif de gatinho">
+        <img src="https://media.giphy.com/media/JIX9t2j0ZTN9S/giphy.gif" alt="Gif de gatinho">
+        <img src="https://media.giphy.com/media/Pk9n41p2yA7CFGJg60/giphy.gif" alt="Gif de gatinho">
+        
+        <img src="https://media.giphy.com/media/CCgFT3eoyTfRpLpro9/giphy.gif" alt="Gif de gatinho">
+        <h1>JULIANE TE AMO</h1>
+        <img src="https://media.giphy.com/media/12vXrAZhMazV7y/giphy.gif" alt="Gif de gatinho">
+
+        <img src="https://media.giphy.com/media/AFJcA3SAqoCla0yXVR/giphy.gif" alt="Gif de gatinho">
+        <img src="https://media.giphy.com/media/LcvINMLirZ2Ud1FZis/giphy.gif" alt="Gif de gatinho">
+        <img src="https://media.giphy.com/media/B4IGZYZ3dlVJK/giphy.gif" alt="Gif de gatinho">
     </div>
 
     <script>
-        function showHearts() {
-            document.getElementById('heartsContainer').style.display = 'block';
+        function showKittens() {
+            document.getElementById('kittensContainer').style.display = 'grid'; // Exibe a grade de gatinhos
+            createHearts(); // Cria os corações
+        }
+
+        function createHearts() {
+            for (let i = 0; i < 20; i++) { // Cria 20 corações
+                const heart = document.createElement('div');
+                heart.className = 'heart';
+                heart.innerHTML = '❤️'; // Coração emoji
+                heart.style.left = Math.random() * 100 + 'vw'; // Posição aleatória em x
+                document.body.appendChild(heart);
+                
+                // Remove o coração após a animação
+                heart.addEventListener('animationend', () => {
+                    heart.remove();
+                });
+            }
         }
     </script>
 </body>
