@@ -7,12 +7,14 @@
     <style>
         body {
             display: flex;
+            flex-direction: column;
             align-items: center;
             justify-content: center;
             height: 100vh;
             margin: 0;
             font-family: Arial, sans-serif;
             background-color: #f2f2f2;
+            overflow: hidden; /* Para esconder os corações que saem da tela */
         }
         .container {
             display: grid;
@@ -30,6 +32,32 @@
             height: auto;
             border-radius: 8px;
         }
+        .button {
+            margin: 20px 0;
+            padding: 10px 20px;
+            font-size: 1.5rem;
+            color: white;
+            background-color: #ff4081;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+        .heart {
+            position: absolute;
+            color: red;
+            font-size: 30px;
+            animation: fall 3s forwards;
+        }
+        @keyframes fall {
+            0% {
+                top: -50px;
+                opacity: 1;
+            }
+            100% {
+                top: 100vh; /* Desce até o fundo da tela */
+                opacity: 0;
+            }
+        }
     </style>
 </head>
 <body>
@@ -46,5 +74,25 @@
         <img src="https://media.giphy.com/media/LcvINMLirZ2Ud1FZis/giphy.gif?cid=ecf05e470u418s3o026juyy0k5h7dxn11kbz87xvku0l1jyi&ep=v1_gifs_search&rid=giphy.gif&ct=g" alt="Gif de gatinho">
         <img src="https://media.giphy.com/media/B4IGZYZ3dlVJK/giphy.gif?cid=ecf05e470u418s3o026juyy0k5h7dxn11kbz87xvku0l1jyi&ep=v1_gifs_search&rid=giphy.gif&ct=g" alt="Gif de gatinho">
     </div>
+    <h1>JULIANE TE AMO</h1>
+    <button class="button" onclick="createHearts()">Clique Aqui para Outra Surpresa!</button>
+
+    <script>
+        function createHearts() {
+            for (let i = 0; i < 20; i++) { // Cria 20 corações
+                const heart = document.createElement('div');
+                heart.className = 'heart';
+                heart.innerHTML = '❤️'; // Coração emoji
+                heart.style.left = Math.random() * 100 + 'vw'; // Posição aleatória em x
+                document.body.appendChild(heart);
+                
+                // Remove o coração após a animação
+                heart.addEventListener('animationend', () => {
+                    heart.remove();
+                });
+            }
+        }
+    </script>
 </body>
 </html>
+
