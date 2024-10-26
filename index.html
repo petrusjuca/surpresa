@@ -14,15 +14,37 @@
             font-family: Arial, sans-serif;
             background-color: #f2f2f2;
         }
-        h1 {
+        .container {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 10px;
+            text-align: center;
+        }
+        .container h1 {
+            grid-column: 2 / 3;
             font-size: 3rem;
             color: #ff4081;
+        }
+        .container img {
+            width: 100%;
+            height: auto;
+            border-radius: 8px;
         }
     </style>
 </head>
 <body>
-    <h1>JULIANE TE AMO</h1>
-    <img src="https://media.giphy.com/media/MpeWJ9JyTyOm4/giphy.gif?cid=790b7611orys26ux6eria65084qcyq2x3u8k9isu5uruxr4b&ep=v1_gifs_search&rid=giphy.gif&ct=g" alt="Gif de gatinhos fofos" style="width: 300px; height: auto; margin-top: 20px;">
+    <div class="container">
+        <img src="https://media.giphy.com/media/vzvnFJV8a7zipTTuHf/giphy.gif?cid=790b7611orys26ux6eria65084qcyq2x3u8k9isu5uruxr4b&ep=v1_gifs_search&rid=giphy.gif&ct=g" alt="Gif de gatinho">
+        <img src="https://media.giphy.com/media/JIX9t2j0ZTN9S/giphy.gif" alt="Gif de gatinho">
+        <img src="https://media.giphy.com/media/Pk9n41p2yA7CFGJg60/giphy.gif?cid=790b7611orys26ux6eria65084qcyq2x3u8k9isu5uruxr4b&ep=v1_gifs_search&rid=giphy.gif&ct=g" alt="Gif de gatinho">
+        
+        <img src="https://media.giphy.com/media/CCgFT3eoyTfRpLpro9/giphy.gif?cid=790b7611orys26ux6eria65084qcyq2x3u8k9isu5uruxr4b&ep=v1_gifs_search&rid=giphy.gif&ct=g" alt="Gif de gatinho">
+        <h1>JULIANE TE AMO</h1>
+        <img src="https://media.giphy.com/media/12vXrAZhMazV7y/giphy.gif?cid=790b7611orys26ux6eria65084qcyq2x3u8k9isu5uruxr4b&ep=v1_gifs_search&rid=giphy.gif&ct=g" alt="Gif de gatinho">
 
+        <img src="https://media.giphy.com/media/AFJcA3SAqoCla0yXVR/giphy.gif?cid=ecf05e47dmjpk3egv7vkn5lfqz4ndc81011hc0dz870oz9b1&ep=v1_gifs_search&rid=giphy.gif&ct=g" alt="Gif de gatinho">
+        <img src="https://media.giphy.com/media/LcvINMLirZ2Ud1FZis/giphy.gif?cid=ecf05e470u418s3o026juyy0k5h7dxn11kbz87xvku0l1jyi&ep=v1_gifs_search&rid=giphy.gif&ct=g" alt="Gif de gatinho">
+        <img src="https://media.giphy.com/media/B4IGZYZ3dlVJK/giphy.gif?cid=ecf05e470u418s3o026juyy0k5h7dxn11kbz87xvku0l1jyi&ep=v1_gifs_search&rid=giphy.gif&ct=g" alt="Gif de gatinho">
+    </div>
 </body>
 </html>
